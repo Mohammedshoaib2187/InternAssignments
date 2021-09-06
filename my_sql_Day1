@@ -1,0 +1,83 @@
+The Following are the tables has to be in your database:
+users
+codekata
+attendance
+topics
+tasks
+company_drives
+mentors
+students_activated_courses
+courses
+
+The following are the queries need to be executed
+
+1. Create tables for the above list given
+2. insert at least 5 rows of values in each table
+
+create database chubb
+
+use chubb
+
+CREATE TABLE users (usr_name varchar(30), usr_email varchar(30))
+
+ALTER TABLE users ADD usr_Id int(20)
+
+INSERT INTO users (usr_id,usr_name,usr_email) VALUES (1,'Shoaib', 'shoaib@gmail.com'),(2,'Vishnu', 'vishnu@gmail.com'),(3,'Shadaab', 'shadaab@gmail.com'),(4,'Zohaib', 'zohaib@gmail.com'),(5,'Neha', 'neha@gmail.com')
+
+CREATE TABLE codekata (usr_id int(20), usr_problems int(20) ,usr_solved int(20), usr_coins int(20))
+
+INSERT INTO codekata (usr_id, usr_problems,usr_solved, usr_coins) VALUES (1,20,10,100),(3,20,5,50),(5,20,9,90),(2,20,15,150),(4,20,1,10)
+
+CREATE TABLE attendance (usr_name varchar(20), days int(20), present int(20), absent int(20))
+
+INSERT INTO attendance (usr_name,days,present,absent) VALUES ('Shoaib',45,35,10),('Neha',45,45,0),('Shadaab',45,30,15),('Zohaib',45,40,5),('Vishnu',45,29,16)
+
+CREATE TABLE company_drive (usr_id int(20),attended int(20),selected int(20),rejected int(20))
+
+INSERT INTO company_drive (usr_id,attended,selected,rejected) VALUES (1,10,5,5),(5,7,5,2),(3,15,9,6),(4,1,1,0),(2,16,8,8)
+
+CREATE TABLE mentors (men_name varchar(20),student_name varchar(20),barnch varchar(20))
+
+INSERT INTO mentors (men_name,student_name,barnch) VALUES ('Arun','Shoaib','CSE'),('Arun','Neha','CSE'),('Jay','Vishnu','IT'),('Jay','Zohaib','IT'),('Jay','Shadaab','IT')
+
+CREATE TABLE courses (course1 varchar(20),fee1 int(20),course2 varchar(20),fee2 int(20),course3 varchar(20),fee3 int(20))
+
+DROP TABLE courses
+
+CREATE TABLE courses (course_id int(20),course varchar(20),fees int(20),enrolled varchar(10))
+
+ALTER TABLE courses MODIFY COLUMN enrolled int(10)
+
+INSERT INTO courses(course_id,course,fees,enrolled) VALUES (1,'Java',2000,30),(2,'Python',5000,60),(3,'Dot NET',5000,20),(4,'C Lan',1000,30),(5,'C++',3000,35)
+
+CREATE TABLE students_activated_courses (usr_name varchar(20),course_id int(10),payment varchar(20))
+
+INSERT INTO students_activated_courses (usr_name,course_id,payment) VALUES ('Shoaib',2,'Complete'),('Zohaib',2,'Complete'),('Shoaib',1,'Incomplete'),('Shadaab',5,'Incomplete'),('Shoaib',3,'Complete')
+
+CREATE TABLE topics (topic_id int(20),topic_name varchar(20),duration int(20),start_date date)
+
+INSERT INTO topics (topic_id,topic_name,duration,start_date) VALUES (1,'Networks',2,'2021-09-14'),(2,'Compiler Design',1,'2021-7-22'),(3,'Cryptography',3,'2021-10-3'),(4,'AI/ML',5,'2021-4-5'),(5,'Big Data',8,'2021-09-29')
+
+CREATE TABLE tasks (task_id int(20),task_name varchar(20),duration int(20),members int(20),Reward varchar(20))
+
+INSERT INTO tasks (task_id,task_name,duration,members,Reward) VALUES (1,'Emotion Detection',2,4,'Cash Prize'),(2,'Seminar Presentation',1,6,'Books'),(3,'Paper Publistion',2,4,'Cash'),(4,'Hackathon',1,4,'Cash'),(5,'Project',1,2,'Books')
+
+3) get number problems solved in codekata by combining the users
+
+ANS : SELECT users.usr_name, codekata.usr_solved from users INNER JOIN codekata ON users.usr_id=codekata.usr_id 
+
+4) display the no of company drives attended by a user
+
+ANS: SELECT users.usr_name, company_drive.attended from users JOIN company_drive ON users.usr_id=company_drive.usr_id
+
+5) combine and display students_activated_courses and courses for a specific user groping them based on the course
+
+ANS: SELECT s.usr_name,c.course_id,c.course from students_activated_courses s join courses c ON s.course_id=c.course_id where usr_name='Shoaib' GROUP BY c.course
+
+6) list all the mentors
+
+ANS : SELECT men_name,barnch from mentors
+
+7) list the number of students that are assigned for a mentor
+
+ANS : SELECT count(student_name) as Students, men_name from mentors GROUP BY men_name
