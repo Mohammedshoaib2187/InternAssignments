@@ -36,4 +36,4 @@ ANS :  db.product.find({product_color:"indigo",product_price:492.00}).pretty();
 
 10) Delete the products which product price value are same
 
-ANS :  
+ANS :  db.product.ensureIndex({product_price:1},{unique:true,dropDups:true});
