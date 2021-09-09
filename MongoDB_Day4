@@ -1,0 +1,207 @@
+Design database for Zen class programme
+users
+
+ANS  :  > db.user.insertMany([
+...     {
+...         "Id" : 1,
+...         "Name" : "Shoaib",
+...         "Absent" : ["3-10-2020","11-10-2020","19-10-2020","25-10-2020"],
+...         "Task":{
+...             "Task_name" : "Assignment",
+...             "Sub_date" : "1-11-2020"
+...         }
+...     },
+...     {
+...         "Id" : 2,
+...         "Name" : "Zohaib",
+...         "Absent" : ["1-10-2020","29-10-2020"],
+...         "Task":{
+...             "Task_name" : "Assignment",
+...             "Sub_date" : "20-10-2020"
+...         }
+...     },
+...     {
+...         "Id" : 3,
+...         "Name" : "Shadaab",
+...         "Absent" : ["7-10-2020","11-10-2020","12-10-2020","19-10-2020"],
+...         "Task":{
+...             "Task_name" : "Assignment",
+...             "Sub_date" : "30-11-2020"
+...         }
+...     },
+...     {
+...         "Id" : 4,
+...         "Name" : "Neha",
+...         "Absent" : ["9-10-2020"],
+...         "Task":{
+...             "Task_name" : "Assignment",
+...             "Sub_date" : "19-10-2020"
+...         }
+...     },
+...     {
+...         "Id" : 5,
+...         "Name" : "Vishnu",
+...         "Absent" : ["3-10-2020","11-10-2020","19-10-2020","25-10-2020"],
+...         "Task":{
+...             "Task_name" : "Assignment",
+...             "Sub_date" : "1-11-2020"
+...         }
+...     }
+... ]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("613a1a7c8743e2151472e359"),
+                ObjectId("613a1a7c8743e2151472e35a"),
+                ObjectId("613a1a7c8743e2151472e35b"),
+                ObjectId("613a1a7c8743e2151472e35c"),
+                ObjectId("613a1a7c8743e2151472e35d")
+        ]
+}
+
+codekata
+
+attendance
+topics
+tasks
+company_drives
+mentors
+
+ANS: > db.mentors.insertMany([
+...     {
+...         "Id" : 1,
+...         "Name" : "Mahesh",
+...         "Branch" : "CSE",
+...         "Mentees":{
+...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,95,93,73,72,84,92,64,27,9832,733,6732,70]
+...         }
+...     },
+...     {
+...         "Id" : 2,
+...         "Name" : "Suresh",
+...         "Branch" : "CSE",
+...         "Mentees":{
+...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,95]
+...         }
+...     },
+...     {
+...         "Id" : 3,
+...         "Name" : "Raina",
+...         "Branch" : "CSE",
+...         "Mentees":{
+...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,84,92,64,27,9832,739,8736,8128,182,9873]
+...         }
+...     },
+...     {
+...         "Id" : 4,
+...         "Name" : "Aslam",
+...         "Branch" : "IT",
+...         "Mentees":{
+...             "Mentee_Id":[95,93,73,72,84,92,64,27,9832,733,6732,70,821,817,871]
+...         }
+...     },
+...     {
+...         "Id" : 1,
+...         "Name" : "Ram",
+...         "Branch" : "EEE",
+...         "Mentees":{
+...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,95,93,73,72,84,92,64,27,9832,733,6732,70]
+...         }
+...     }
+... ])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("613a23b98743e2151472e35e"),
+                ObjectId("613a23b98743e2151472e35f"),
+                ObjectId("613a23b98743e2151472e360"),
+                ObjectId("613a23b98743e2151472e361"),
+                ObjectId("613a23b98743e2151472e362")
+        ]
+}
+
+
+
+Find all the topics and tasks which are thought in the month of October
+Find all the company drives which appeared between 15 oct-2020 and 31-oct-2020
+Find all the company drives and students who are appeared for the placement.
+Find the number of problems solved by the user in codekata
+
+ANS :  
+
+Find all the mentors with who has the mentee's count more than 15
+
+ANS  :  > db.mentors.find( { $where: "this.Mentees.Mentee_Id.length >= 15" },{Id : 1 , Name : 1, Branch : 1}).pretty();
+{
+        "_id" : ObjectId("613a23b98743e2151472e35e"),
+        "Id" : 1,
+        "Name" : "Mahesh",
+        "Branch" : "CSE"
+}
+{
+        "_id" : ObjectId("613a23b98743e2151472e360"),
+        "Id" : 3,
+        "Name" : "Raina",
+        "Branch" : "CSE"
+}
+{
+        "_id" : ObjectId("613a23b98743e2151472e361"),
+        "Id" : 4,
+        "Name" : "Aslam",
+        "Branch" : "IT"
+}
+{
+        "_id" : ObjectId("613a23b98743e2151472e362"),
+        "Id" : 5,
+        "Name" : "Ram",
+        "Branch" : "EEE"
+}
+
+Find the number of users who are absent and task is not submitted  between 15 oct-2020 and 31-oct-2020
+
+ANS :  > db.user.find({
+...     "$and":[
+...         {
+...             "Absent":{
+...                     "$gt":"15-10-2020","$lt":"31-10-2020"
+...             }
+...         },
+...         {
+...             "Task.Sub_date":{
+...                 "$not":{
+...                     "$gt":"15-10-2020","$lt":"31-10-2020"
+...                 }
+...             }
+...         }
+...     ]
+... }).pretty()
+{
+        "_id" : ObjectId("613a1a7c8743e2151472e359"),
+        "Id" : 1,
+        "Name" : "Shoaib",
+        "Absent" : [
+                "3-10-2020",
+                "11-10-2020",
+                "19-10-2020",
+                "25-10-2020"
+        ],
+        "Task" : {
+                "Task_name" : "Assignment",
+                "Sub_date" : "1-11-2020"
+        }
+}
+{
+        "_id" : ObjectId("613a1a7c8743e2151472e35d"),
+        "Id" : 5,
+        "Name" : "Vishnu",
+        "Absent" : [
+                "3-10-2020",
+                "11-10-2020",
+                "19-10-2020",
+                "25-10-2020"
+        ],
+        "Task" : {
+                "Task_name" : "Assignment",
+                "Sub_date" : "1-11-2020"
+        }
+}
