@@ -2,206 +2,753 @@ Design database for Zen class programme
 users
 
 ANS  :  > db.user.insertMany([
-...     {
-...         "Id" : 1,
-...         "Name" : "Shoaib",
-...         "Absent" : ["3-10-2020","11-10-2020","19-10-2020","25-10-2020"],
-...         "Task":{
-...             "Task_name" : "Assignment",
-...             "Sub_date" : "1-11-2020"
-...         }
-...     },
-...     {
-...         "Id" : 2,
-...         "Name" : "Zohaib",
-...         "Absent" : ["1-10-2020","29-10-2020"],
-...         "Task":{
-...             "Task_name" : "Assignment",
-...             "Sub_date" : "20-10-2020"
-...         }
-...     },
-...     {
-...         "Id" : 3,
-...         "Name" : "Shadaab",
-...         "Absent" : ["7-10-2020","11-10-2020","12-10-2020","19-10-2020"],
-...         "Task":{
-...             "Task_name" : "Assignment",
-...             "Sub_date" : "30-11-2020"
-...         }
-...     },
-...     {
-...         "Id" : 4,
-...         "Name" : "Neha",
-...         "Absent" : ["9-10-2020"],
-...         "Task":{
-...             "Task_name" : "Assignment",
-...             "Sub_date" : "19-10-2020"
-...         }
-...     },
-...     {
-...         "Id" : 5,
-...         "Name" : "Vishnu",
-...         "Absent" : ["3-10-2020","11-10-2020","19-10-2020","25-10-2020"],
-...         "Task":{
-...             "Task_name" : "Assignment",
-...             "Sub_date" : "1-11-2020"
-...         }
-...     }
-... ]);
-{
-        "acknowledged" : true,
-        "insertedIds" : [
-                ObjectId("613a1a7c8743e2151472e359"),
-                ObjectId("613a1a7c8743e2151472e35a"),
-                ObjectId("613a1a7c8743e2151472e35b"),
-                ObjectId("613a1a7c8743e2151472e35c"),
-                ObjectId("613a1a7c8743e2151472e35d")
-        ]
-}
+                ...     {
+                ...         "Id" : 1,
+                ...         "Name" : "Shoaib",
+                ...         "Absent" : ["3-10-2020","11-10-2020","19-10-2020","25-10-2020"],
+                ...         "Task":{
+                ...             "Task_name" : "Assignment",
+                ...             "Sub_date" : "1-11-2020"
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 2,
+                ...         "Name" : "Zohaib",
+                ...         "Absent" : ["1-10-2020","29-10-2020"],
+                ...         "Task":{
+                ...             "Task_name" : "Assignment",
+                ...             "Sub_date" : "20-10-2020"
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 3,
+                ...         "Name" : "Shadaab",
+                ...         "Absent" : ["7-10-2020","11-10-2020","12-10-2020","19-10-2020"],
+                ...         "Task":{
+                ...             "Task_name" : "Assignment",
+                ...             "Sub_date" : "30-11-2020"
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 4,
+                ...         "Name" : "Neha",
+                ...         "Absent" : ["9-10-2020"],
+                ...         "Task":{
+                ...             "Task_name" : "Assignment",
+                ...             "Sub_date" : "19-10-2020"
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 5,
+                ...         "Name" : "Vishnu",
+                ...         "Absent" : ["3-10-2020","11-10-2020","19-10-2020","25-10-2020"],
+                ...         "Task":{
+                ...             "Task_name" : "Assignment",
+                ...             "Sub_date" : "1-11-2020"
+                ...         }
+                ...     }
+                ... ]);
+                {
+                        "acknowledged" : true,
+                        "insertedIds" : [
+                                ObjectId("613a1a7c8743e2151472e359"),
+                                ObjectId("613a1a7c8743e2151472e35a"),
+                                ObjectId("613a1a7c8743e2151472e35b"),
+                                ObjectId("613a1a7c8743e2151472e35c"),
+                                ObjectId("613a1a7c8743e2151472e35d")
+                        ]
+                }
 
 codekata
 
+ANS : > db.codekata.insertMany([
+                ...     {
+                ...         "Id" : 1,
+                ...         "Name" : "Shoaib",
+                ...         "Email" : "abc@gmail.com",
+                ...         "Problems" :{
+                ...             "All" : 20,
+                ...             "Solved" : 15,
+                ...             "Unsolved" : 5,
+                ...             "Coins" : 280
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 2,
+                ...         "Name" : "Zohaib",
+                ...         "Email" : "def@gmail.com",
+                ...         "Problems" :{
+                ...             "All" : 20,
+                ...             "Solved" : 19,
+                ...             "Unsolved" : 1,
+                ...             "Coins" : 450
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 3,
+                ...         "Name" : "Shadaab",
+                ...         "Email" : "hij@gmail.com",
+                ...         "Problems" :{
+                ...             "All" : 20,
+                ...             "Solved" : 9,
+                ...             "Unsolved" : 11,
+                ...             "Coins" : 180
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 4,
+                ...         "Name" : "Neha",
+                ...         "Email" : "klm@gmail.com",
+                ...         "Problems" :{
+                ...             "All" : 20,
+                ...             "Solved" : 20,
+                ...             "Unsolved" : 0,
+                ...             "Coins" : 500
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 5,
+                ...         "Name" : "Mohan",
+                ...         "Email" : "nopq@gmail.com",
+                ...         "Problems" :{
+                ...             "All" : 20,
+                ...             "Solved" : 4,
+                ...             "Unsolved" : 16,
+                ...             "Coins" : 120
+                ...         }
+                ...     }
+                ... ]);
+                {
+                        "acknowledged" : true,
+                        "insertedIds" : [
+                                ObjectId("613b644f13626450a4e89cd9"),
+                                ObjectId("613b644f13626450a4e89cda"),
+                                ObjectId("613b644f13626450a4e89cdb"),
+                                ObjectId("613b644f13626450a4e89cdc"),
+                                ObjectId("613b644f13626450a4e89cdd")
+                        ]
+                }
+
 attendance
-topics
-tasks
+
+ANS : > db.attendance.insertMany([
+                ...     {
+                ...         "Class" : "CSE2",
+                ...         "No_Of_Students" : 60,
+                ...         "Date" : new Date("2020-10-15"),
+                ...         "Absent" : 10,
+                ...         "Present" : 50
+                ...     },
+                ...     {
+                ...         "Class" : "EEE1",
+                ...         "No_Of_Students" : 50,
+                ...         "Date" : new Date("2020-10-30"),
+                ...         "Absent" : 4,
+                ...         "Present" : 46
+                ...     },
+                ...     {
+                ...         "Class" : "CSE2",
+                ...         "No_Of_Students" : 60,
+                ...         "Date" : new Date("2020-10-30"),
+                ...         "Absent" : 0,
+                ...         "Present" : 60
+                ...     },
+                ...     {
+                ...         "Class" : "CE3",
+                ...         "No_Of_Students" : 70,
+                ...         "Date" : new Date("2020-10-15"),
+                ...         "Absent" : 7,
+                ...         "Present" : 63
+                ...     },
+                ...     {
+                ...         "Class" : "EIE",
+                ...         "No_Of_Students" : 60,
+                ...         "Date" : new Date("2020-10-15"),
+                ...         "Absent" : 9,
+                ...         "Present" : 51
+                ...     }
+                ... ])
+                {
+                        "acknowledged" : true,
+                        "insertedIds" : [
+                                ObjectId("613b74716026a549e6797e71"),
+                                ObjectId("613b74716026a549e6797e72"),
+                                ObjectId("613b74716026a549e6797e73"),
+                                ObjectId("613b74716026a549e6797e74"),
+                                ObjectId("613b74716026a549e6797e75")
+                        ]
+                }
+
+topics_task
+
+ANS : > db.topic_task.insertMany([
+                ...     {
+                ...         "Topic_id" : 1,
+                ...         "Topic_name" : "SQL",
+                ...         "Duration" : 2,
+                ...         "Start_Date" : new Date("2020-10-01"),
+                ...         "End_Date" : new Date("2021-01-01"),
+                ...         "Task" : [
+                ...             {
+                ...                 "Task_id" : 1,
+                ...                 "Task_name" : "Assignment1",
+                ...                 "Task_start" : new Date("2020-10-05")
+                ...             }
+                ...         ]
+                ...     },
+                ...     {
+                ...         "Topic_id" : 2,
+                ...         "Topic_name" : "MongoDB",
+                ...         "Duration" : 1,
+                ...         "Start_Date" : new Date("2020-10-15"),
+                ...         "End_Date" : new Date("2021-01-16"),
+                ...         "Task" : [
+                ...             {
+                ...                 "Task_id" : 1,
+                ...                 "Task_name" : "Assignment1",
+                ...                 "Task_start" : new Date("2020-10-20")
+                ...             }
+                ...         ]
+                ...     },
+                ...     {
+                ...         "Topic_id" : 3,
+                ...         "Topic_name" : "React",
+                ...         "Duration" : 3,
+                ...         "Start_Date" : new Date("2020-11-01"),
+                ...         "End_Date" : new Date("2021-03-01"),
+                ...         "Task" : [
+                ...             {
+                ...                 "Task_id" : 1,
+                ...                 "Task_name" : "Assignment1",
+                ...                 "Task_start" : new Date("2020-10-05")
+                ...             }
+                ...         ]
+                ...     },
+                ...     {
+                ...         "Topic_id" : 4,
+                ...         "Topic_name" : "Angular",
+                ...         "Duration" : 2,
+                ...         "Start_Date" : new Date("2020-10-05"),
+                ...         "End_Date" : new Date("2021-01-01"),
+                ...         "Task" : [
+                ...             {
+                ...                 "Task_id" : 1,
+                ...                 "Task_name" : "Assignment1",
+                ...                 "Task_start" : new Date("2020-11-22")
+                ...             }
+                ...         ]
+                ...     },
+                ...     {
+                ...         "Topic_id" : 5,
+                ...         "Topic_name" : "Dot Net",
+                ...         "Duration" : 2,
+                ...         "Start_Date" : new Date("2020-10-01"),
+                ...         "End_Date" : new Date("2021-01-01"),
+                ...         "Task" : [
+                ...             {
+                ...                 "Task_id" : 1,
+                ...                 "Task_name" : "Assignment1",
+                ...                 "Task_start" : new Date("2020-10-05")
+                ...             }
+                ...         ]
+                ...     }
+                ... ]);
+                {
+                        "acknowledged" : true,
+                        "insertedIds" : [
+                                ObjectId("613b7ee96026a549e6797e76"),
+                                ObjectId("613b7ee96026a549e6797e77"),
+                                ObjectId("613b7ee96026a549e6797e78"),
+                                ObjectId("613b7ee96026a549e6797e79"),
+                                ObjectId("613b7ee96026a549e6797e7a")
+                        ]
+                }
+
 company_drives
+
+ANS : > db.campus_drive.insertMany([
+                ...     {
+                ...         "Id" : 1,
+                ...         "Name" : "Chubb",
+                ...         "Date" : "19-10-2020",
+                ...         "Placement" : {
+                ...             "Type" : ["On-campus","Off-campus"],
+                ...             "Colleges_visited" : 3,
+                ...             "Colleges" : [
+                ...                 {
+                ...                     "Clg_name" : "KITS",
+                ...                     "Students" : ["abc","bcd","cde","def","efg"]
+                ...                 },
+                ...                 {
+                ...                     "Clg_name" : "NIT",
+                ...                     "Students" : ["zxy","bhdn","jqhdj","2iwdh","ehb","jwde"]
+                ...                 },
+                ...                 {
+                ...                     "Clg_name" : "BITS",
+                ...                     "Students" : ["whldjb","gdhb","qwush"]
+                ...                 }
+                ...             ]
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 2,
+                ...         "Name" : "Infosys",
+                ...         "Date" : "14-10-2020",
+                ...         "Placement" : {
+                ...             "Type" : ["On-campus"],
+                ...             "Colleges_visited" : 2,
+                ...             "Colleges" : [
+                ...                 {
+                ...                     "Clg_name" : "KITS",
+                ...                     "Students" : ["kbcddw","cdejha","dedjf","ejcfg"]
+                ...                 },
+                ...                 {
+                ...                     "Clg_name" : "NIT",
+                ...                     "Students" : ["RV","hc","wqhgs","jejh"]
+                ...                 }
+                ...             ]
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 3,
+                ...         "Name" : "Juspay",
+                ...         "Date" : "22-10-2020",
+                ...         "Placement" : {
+                ...             "Type" : ["Off-campus"],
+                ...             "Colleges_visited" : 0,
+                ...             "Colleges" : [
+                ...                 {
+                ...                     "Clg_name" : "NIT",
+                ...                     "Students" : ["bhdj","kncdh","ehb","jpo"]
+                ...                 },
+                ...                 {
+                ...                     "Clg_name" : "BITS",
+                ...                     "Students" : ["wjb","ghb","ush"]
+                ...                 }
+                ...             ]
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 4,
+                ...         "Name" : "Accenture",
+                ...         "Date" : "30-11-2020",
+                ...         "Placement" : {
+                ...             "Type" : ["On-campus","Off-campus"],
+                ...             "Colleges_visited" : 3,
+                ...             "Colleges" : [
+                ...                 {
+                ...                     "Clg_name" : "KITS",
+                ...                     "Students" : ["abc","bcd","cde","def","efg"]
+                ...                 },
+                ...                 {
+                ...                     "Clg_name" : "NIT",
+                ...                     "Students" : ["zxy","bhdn","jqhdj","2iwdh","ehb","jwde"]
+                ...                 },
+                ...                 {
+                ...                     "Clg_name" : "BITS",
+                ...                     "Students" : ["whldjb","gdhb","qwush"]
+                ...                 }
+                ...             ]
+                ...         }
+                ...     }
+                ... ]);
+                {
+                        "acknowledged" : true,
+                        "insertedIds" : [
+                                ObjectId("613b69f46026a549e6797e6c"),
+                                ObjectId("613b69f46026a549e6797e6d"),
+                                ObjectId("613b69f46026a549e6797e6e"),
+                                ObjectId("613b69f46026a549e6797e6f")
+                        ]
+                }
+
 mentors
 
 ANS: > db.mentors.insertMany([
-...     {
-...         "Id" : 1,
-...         "Name" : "Mahesh",
-...         "Branch" : "CSE",
-...         "Mentees":{
-...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,95,93,73,72,84,92,64,27,9832,733,6732,70]
-...         }
-...     },
-...     {
-...         "Id" : 2,
-...         "Name" : "Suresh",
-...         "Branch" : "CSE",
-...         "Mentees":{
-...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,95]
-...         }
-...     },
-...     {
-...         "Id" : 3,
-...         "Name" : "Raina",
-...         "Branch" : "CSE",
-...         "Mentees":{
-...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,84,92,64,27,9832,739,8736,8128,182,9873]
-...         }
-...     },
-...     {
-...         "Id" : 4,
-...         "Name" : "Aslam",
-...         "Branch" : "IT",
-...         "Mentees":{
-...             "Mentee_Id":[95,93,73,72,84,92,64,27,9832,733,6732,70,821,817,871]
-...         }
-...     },
-...     {
-...         "Id" : 1,
-...         "Name" : "Ram",
-...         "Branch" : "EEE",
-...         "Mentees":{
-...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,95,93,73,72,84,92,64,27,9832,733,6732,70]
-...         }
-...     }
-... ])
-{
-        "acknowledged" : true,
-        "insertedIds" : [
-                ObjectId("613a23b98743e2151472e35e"),
-                ObjectId("613a23b98743e2151472e35f"),
-                ObjectId("613a23b98743e2151472e360"),
-                ObjectId("613a23b98743e2151472e361"),
-                ObjectId("613a23b98743e2151472e362")
-        ]
-}
+                ...     {
+                ...         "Id" : 1,
+                ...         "Name" : "Mahesh",
+                ...         "Branch" : "CSE",
+                ...         "Mentees":{
+                ...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,95,93,73,72,84,92,64,27,9832,733,6732,70]
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 2,
+                ...         "Name" : "Suresh",
+                ...         "Branch" : "CSE",
+                ...         "Mentees":{
+                ...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,95]
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 3,
+                ...         "Name" : "Raina",
+                ...         "Branch" : "CSE",
+                ...         "Mentees":{
+                ...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,84,92,64,27,9832,739,8736,8128,182,9873]
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 4,
+                ...         "Name" : "Aslam",
+                ...         "Branch" : "IT",
+                ...         "Mentees":{
+                ...             "Mentee_Id":[95,93,73,72,84,92,64,27,9832,733,6732,70,821,817,871]
+                ...         }
+                ...     },
+                ...     {
+                ...         "Id" : 1,
+                ...         "Name" : "Ram",
+                ...         "Branch" : "EEE",
+                ...         "Mentees":{
+                ...             "Mentee_Id":[1,4,2,5,8,10,23,91,63,95,93,73,72,84,92,64,27,9832,733,6732,70]
+                ...         }
+                ...     }
+                ... ])
+                {
+                        "acknowledged" : true,
+                        "insertedIds" : [
+                                ObjectId("613a23b98743e2151472e35e"),
+                                ObjectId("613a23b98743e2151472e35f"),
+                                ObjectId("613a23b98743e2151472e360"),
+                                ObjectId("613a23b98743e2151472e361"),
+                                ObjectId("613a23b98743e2151472e362")
+                        ]
+                }
 
 
 
 Find all the topics and tasks which are thought in the month of October
+
+ANS : > db.topic_task.find({
+                ...   "$and":[
+                ...     {
+                ...       "$where" : "this.Start_Date.getMonth()==09"
+                ...     },
+                ...     {
+                ...       "$where" : "this.Task.Task_start.getMonth()==09"
+                ...     }
+                ...   ]
+                ... },
+                ... {
+                ...   "Topic_name":1,
+                ...   "Task.Task_name" :1
+                ... }).pretty()
+                {
+                        "_id" : ObjectId("613b80ed6026a549e6797e7b"),
+                        "Topic_name" : "SQL",
+                        "Task" : {
+                                "Task_name" : "Assignment1"
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b80ed6026a549e6797e7c"),
+                        "Topic_name" : "MongoDB",
+                        "Task" : {
+                                "Task_name" : "Assignment1"
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b80ed6026a549e6797e7f"),
+                        "Topic_name" : "Dot Net",
+                        "Task" : {
+                                "Task_name" : "Assignment1"
+                        }
+                }
+
 Find all the company drives which appeared between 15 oct-2020 and 31-oct-2020
+
+ANS : > db.campus_drive.find({"Date": {$gte:"15-10-2020",$lt:"31-10-2020"}},{"Name":1,"Date":1,"Placement.Colleges.Clg_name":1}).pretty()
+                {
+                        "_id" : ObjectId("613b69f46026a549e6797e6c"),
+                        "Name" : "Chubb",
+                        "Date" : "19-10-2020",
+                        "Placement" : {
+                                "Colleges" : [
+                                        {
+                                                "Clg_name" : "KITS"
+                                        },
+                                        {
+                                                "Clg_name" : "NIT"
+                                        },
+                                        {
+                                                "Clg_name" : "BITS"
+                                        }
+                                ]
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b69f46026a549e6797e6e"),
+                        "Name" : "Juspay",
+                        "Date" : "22-10-2020",
+                        "Placement" : {
+                                "Colleges" : [
+                                        {
+                                                "Clg_name" : "NIT"
+                                        },
+                                        {
+                                                "Clg_name" : "BITS"
+                                        }
+                                ]
+                        }
+                }
+
 Find all the company drives and students who are appeared for the placement.
+
+ANS : > db.campus_drive.find({},{"Name":1,"Date":1,"Placement.Colleges.Clg_name":1,"Placement.Colleges.Students":1}).pretty()
+                {
+                        "_id" : ObjectId("613b69f46026a549e6797e6c"),
+                        "Name" : "Chubb",
+                        "Date" : "19-10-2020",
+                        "Placement" : {
+                                "Colleges" : [
+                                        {
+                                                "Clg_name" : "KITS",
+                                                "Students" : [
+                                                        "abc",
+                                                        "bcd",
+                                                        "cde",
+                                                        "def",
+                                                        "efg"
+                                                ]
+                                        },
+                                        {
+                                                "Clg_name" : "NIT",
+                                                "Students" : [
+                                                        "zxy",
+                                                        "bhdn",
+                                                        "jqhdj",
+                                                        "2iwdh",
+                                                        "ehb",
+                                                        "jwde"
+                                                ]
+                                        },
+                                        {
+                                                "Clg_name" : "BITS",
+                                                "Students" : [
+                                                        "whldjb",
+                                                        "gdhb",
+                                                        "qwush"
+                                                ]
+                                        }
+                                ]
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b69f46026a549e6797e6d"),
+                        "Name" : "Infosys",
+                        "Date" : "14-10-2020",
+                        "Placement" : {
+                                "Colleges" : [
+                                        {
+                                                "Clg_name" : "KITS",
+                                                "Students" : [
+                                                        "kbcddw",
+                                                        "cdejha",
+                                                        "dedjf",
+                                                        "ejcfg"
+                                                ]
+                                        },
+                                        {
+                                                "Clg_name" : "NIT",
+                                                "Students" : [
+                                                        "RV",
+                                                        "hc",
+                                                        "wqhgs",
+                                                        "jejh"
+                                                ]
+                                        }
+                                ]
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b69f46026a549e6797e6e"),
+                        "Name" : "Juspay",
+                        "Date" : "22-10-2020",
+                        "Placement" : {
+                                "Colleges" : [
+                                        {
+                                                "Clg_name" : "NIT",
+                                                "Students" : [
+                                                        "bhdj",
+                                                        "kncdh",
+                                                        "ehb",
+                                                        "jpo"
+                                                ]
+                                        },
+                                        {
+                                                "Clg_name" : "BITS",
+                                                "Students" : [
+                                                        "wjb",
+                                                        "ghb",
+                                                        "ush"
+                                                ]
+                                        }
+                                ]
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b69f46026a549e6797e6f"),
+                        "Name" : "Accenture",
+                        "Date" : "30-11-2020",
+                        "Placement" : {
+                                "Colleges" : [
+                                        {
+                                                "Clg_name" : "KITS",
+                                                "Students" : [
+                                                        "abc",
+                                                        "bcd",
+                                                        "cde",
+                                                        "def",
+                                                        "efg"
+                                                ]
+                                        },
+                                        {
+                                                "Clg_name" : "NIT",
+                                                "Students" : [
+                                                        "zxy",
+                                                        "bhdn",
+                                                        "jqhdj",
+                                                        "2iwdh",
+                                                        "ehb",
+                                                        "jwde"
+                                                ]
+                                        },
+                                        {
+                                                "Clg_name" : "BITS",
+                                                "Students" : [
+                                                        "whldjb",
+                                                        "gdhb",
+                                                        "qwush"
+                                                ]
+                                        }
+                                ]
+                        }
+                }
+
 Find the number of problems solved by the user in codekata
 
-ANS :  
+ANS :  > db.codekata.find({},{"Id":1,"Name":1,"Email":1,"Problems.Solved":1}).pretty()
+                {
+                        "_id" : ObjectId("613b644f13626450a4e89cd9"),
+                        "Id" : 1,
+                        "Name" : "Shoaib",
+                        "Email" : "abc@gmail.com",
+                        "Problems" : {
+                                "Solved" : 15
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b644f13626450a4e89cda"),
+                        "Id" : 2,
+                        "Name" : "Zohaib",
+                        "Email" : "def@gmail.com",
+                        "Problems" : {
+                                "Solved" : 19
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b644f13626450a4e89cdb"),
+                        "Id" : 3,
+                        "Name" : "Shadaab",
+                        "Email" : "hij@gmail.com",
+                        "Problems" : {
+                                "Solved" : 9
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b644f13626450a4e89cdc"),
+                        "Id" : 4,
+                        "Name" : "Neha",
+                        "Email" : "klm@gmail.com",
+                        "Problems" : {
+                                "Solved" : 20
+                        }
+                }
+                {
+                        "_id" : ObjectId("613b644f13626450a4e89cdd"),
+                        "Id" : 5,
+                        "Name" : "Mohan",
+                        "Email" : "nopq@gmail.com",
+                        "Problems" : {
+                                "Solved" : 4
+                        }
+                }
 
 Find all the mentors with who has the mentee's count more than 15
 
 ANS  :  > db.mentors.find( { $where: "this.Mentees.Mentee_Id.length >= 15" },{Id : 1 , Name : 1, Branch : 1}).pretty();
-{
-        "_id" : ObjectId("613a23b98743e2151472e35e"),
-        "Id" : 1,
-        "Name" : "Mahesh",
-        "Branch" : "CSE"
-}
-{
-        "_id" : ObjectId("613a23b98743e2151472e360"),
-        "Id" : 3,
-        "Name" : "Raina",
-        "Branch" : "CSE"
-}
-{
-        "_id" : ObjectId("613a23b98743e2151472e361"),
-        "Id" : 4,
-        "Name" : "Aslam",
-        "Branch" : "IT"
-}
-{
-        "_id" : ObjectId("613a23b98743e2151472e362"),
-        "Id" : 5,
-        "Name" : "Ram",
-        "Branch" : "EEE"
-}
+                {
+                        "_id" : ObjectId("613a23b98743e2151472e35e"),
+                        "Id" : 1,
+                        "Name" : "Mahesh",
+                        "Branch" : "CSE"
+                }
+                {
+                        "_id" : ObjectId("613a23b98743e2151472e360"),
+                        "Id" : 3,
+                        "Name" : "Raina",
+                        "Branch" : "CSE"
+                }
+                {
+                        "_id" : ObjectId("613a23b98743e2151472e361"),
+                        "Id" : 4,
+                        "Name" : "Aslam",
+                        "Branch" : "IT"
+                }
+                {
+                        "_id" : ObjectId("613a23b98743e2151472e362"),
+                        "Id" : 5,
+                        "Name" : "Ram",
+                        "Branch" : "EEE"
+                }
 
 Find the number of users who are absent and task is not submitted  between 15 oct-2020 and 31-oct-2020
 
 ANS :  > db.user.find({
-...     "$and":[
-...         {
-...             "Absent":{
-...                     "$gt":"15-10-2020","$lt":"31-10-2020"
-...             }
-...         },
-...         {
-...             "Task.Sub_date":{
-...                 "$not":{
-...                     "$gt":"15-10-2020","$lt":"31-10-2020"
-...                 }
-...             }
-...         }
-...     ]
-... }).pretty()
-{
-        "_id" : ObjectId("613a1a7c8743e2151472e359"),
-        "Id" : 1,
-        "Name" : "Shoaib",
-        "Absent" : [
-                "3-10-2020",
-                "11-10-2020",
-                "19-10-2020",
-                "25-10-2020"
-        ],
-        "Task" : {
-                "Task_name" : "Assignment",
-                "Sub_date" : "1-11-2020"
-        }
-}
-{
-        "_id" : ObjectId("613a1a7c8743e2151472e35d"),
-        "Id" : 5,
-        "Name" : "Vishnu",
-        "Absent" : [
-                "3-10-2020",
-                "11-10-2020",
-                "19-10-2020",
-                "25-10-2020"
-        ],
-        "Task" : {
-                "Task_name" : "Assignment",
-                "Sub_date" : "1-11-2020"
-        }
-}
+                ...     "$and":[
+                ...         {
+                ...             "Absent":{
+                ...                     "$gt":"15-10-2020","$lt":"31-10-2020"
+                ...             }
+                ...         },
+                ...         {
+                ...             "Task.Sub_date":{
+                ...                 "$not":{
+                ...                     "$gt":"15-10-2020","$lt":"31-10-2020"
+                ...                 }
+                ...             }
+                ...         }
+                ...     ]
+                ... }).pretty()
+                {
+                        "_id" : ObjectId("613a1a7c8743e2151472e359"),
+                        "Id" : 1,
+                        "Name" : "Shoaib",
+                        "Absent" : [
+                                "3-10-2020",
+                                "11-10-2020",
+                                "19-10-2020",
+                                "25-10-2020"
+                        ],
+                        "Task" : {
+                                "Task_name" : "Assignment",
+                                "Sub_date" : "1-11-2020"
+                        }
+                }
+                {
+                        "_id" : ObjectId("613a1a7c8743e2151472e35d"),
+                        "Id" : 5,
+                        "Name" : "Vishnu",
+                        "Absent" : [
+                                "3-10-2020",
+                                "11-10-2020",
+                                "19-10-2020",
+                                "25-10-2020"
+                        ],
+                        "Task" : {
+                                "Task_name" : "Assignment",
+                                "Sub_date" : "1-11-2020"
+                        }
+                }
