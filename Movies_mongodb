@@ -1,0 +1,288 @@
+Movies Collection
+
+db.movies.insertMany([
+    {
+        "movie_name" : "Avengers",
+        "media" : ["Video","Images","Audio"],
+        "genre" : ["Action","Adventure","Thriller","Sci-Fi"],
+        "artist_skills" : [
+            {
+                "name" : "chris",
+                "skills" : ["Acting","Dancing","Singing"]
+            },
+            {
+                "name" : "RJ",
+                "skills" : ["Acting"]
+            },
+            {
+                "name" : "scarlett",
+                "skills" : ["Acting","Action"]
+            },
+            {
+                "name" : "wanda",
+                "skills" : ["Acting","Singing"]
+            }
+        ],
+        "artist_role" :[
+            {
+                "name" : "chris",
+                "role" : ["Thor"]
+            },
+            {
+                "name" : "RJ",
+                "role" : ["Ironman","Tony"]
+            },
+            {
+                "name" : "scarlett",
+                "role" : ["Natasha","Black widow"]
+            }
+        ]
+    },
+    {
+        "movie_name" : "Housefull 3",
+        "media" : ["Video","Images"],
+        "genre" : ["Drama","Comedy"],
+        "artist_skills" : [
+            {
+                "name" : "Abhishek",
+                "skills" : ["Acting","Dancing","Singing"]
+            },
+            {
+                "name" : "akshay",
+                "skills" : ["Acting"]
+            },
+            {
+                "name" : "Rithesh",
+                "skills" : ["Acting","Stunt"]
+            },
+            {
+                "name" : "Jackqlen",
+                "skills" : ["Acting"]
+            }
+        ],
+        "artist_role" :[
+            {
+                "name" : "Abhishek",
+                "role" : ["Blind Person","Rapper"]
+            },
+            {
+                "name" : "Akshay",
+                "role" : ["Physically handicap"]
+            },
+            {
+                "name" : "Rithesh",
+                "role" : ["Mute","Racer"]
+            }
+        ]
+    },
+    {
+        "movie_name" : "Money heist",
+        "media" : ["Video","Audio"],
+        "genre" : ["Action","Adventure","Thriller"],
+        "artist_skills" : [
+            {
+                "name" : "Alvaro",
+                "skills" : ["Acting","Dancing"]
+            },
+            {
+                "name" : "Ursula",
+                "skills" : ["Acting","Action"]
+            },
+            {
+                "name" : "Pedro",
+                "skills" : ["Acting","Action"]
+            },
+            {
+                "name" : "Alba",
+                "skills" : ["Acting"]
+            }
+        ],
+        "artist_role" :[
+            {
+                "name" : "Alvaro",
+                "role" : ["Professor"]
+            },
+            {
+                "name" : "Ursula",
+                "role" : ["Tokyo"]
+            },
+            {
+                "name" : "Alba",
+                "role" : ["Nairobi"]
+            }
+        ]
+    },
+    {
+        "movie_name" : "TeenWolf",
+        "media" : ["Video","Audio"],
+        "genre" : ["Action","Adventure","Thriller","Sci-Fi"],
+        "artist_skills" : [
+            {
+                "name" : "Tyler",
+                "skills" : ["Acting","Dancing","Action"]
+            },
+            {
+                "name" : "Holland",
+                "skills" : ["Acting"]
+            },
+            {
+                "name" : "Crystal",
+                "skills" : ["Acting","Action"]
+            },
+            {
+                "name" : "Dylan",
+                "skills" : ["Acting"]
+            }
+        ],
+        "artist_role" :[
+            {
+                "name" : "Tyler",
+                "role" : ["Scott","Alpha"]
+            },
+            {
+                "name" : "Holland",
+                "role" : ["Lydia","Banshee"]
+            },
+            {
+                "name" : "Crystal",
+                "role" : ["Allison","Lover"]
+            },
+            {
+                "name" : "Dylan",
+                "role" :  ["Stiles","Friend"]
+            }
+        ]
+    }
+]
+
+Reviews Collection 
+
+db.reviews.insertMany([
+    {
+        "review_id" : 1,
+        "user_name" : "John",
+        "movie_name" : "Avengers",
+        "review" : "Excellent" 
+    },
+    {
+        "review_id" : 2,
+        "user_name" : "John",
+        "movie_name" : "Housefull3",
+        "review" : "Good" 
+    },
+    {
+        "review_id" : 3,
+        "user_name" : "Blake",
+        "movie_name" : "Avengers",
+        "review" : "Excellent" 
+    },
+    {
+        "review_id" : 4,
+        "user_name" : "dev",
+        "movie_name" : "Money heist",
+        "review" : "Superb" 
+    },
+    {
+        "review_id" : 5,
+        "user_name" : "loki",
+        "movie_name" : "Avengers",
+        "review" : "Average" 
+    },
+    {
+        "review_id" : 6,
+        "user_name" : "Raj",
+        "movie_name" : "Teenwolf",
+        "review" : "Excellent" 
+    },
+    {
+        "review_id" : 7,
+        "user_name" : "Rahim",
+        "movie_name" : "Housefull3",
+        "review" : "Average" 
+    },
+    {
+        "review_id" : 8,
+        "user_name" : "John",
+        "movie_name" : "Teenwolf",
+        "review" : "Good" 
+    }
+])
+
+
+1) List all media of a particular movie
+
+db.movies.find({"movie_name" : "Avengers"},{"movie_name":1,"media":1}).pretty()
+
+
+2) List all media and reviews of a particular movie
+
+db.movies.aggregate([
+  {
+    '$lookup': {
+      'from': 'reviews', 
+      'localField': 'movie_name', 
+      'foreignField': 'movie_name', 
+      'as': 'reviews'
+    }
+  }, {
+    '$match': {
+      'movie_name': 'Avengers'
+    }
+  }, {
+    '$project': {
+      'movie_name': 1, 
+      'media': 1, 
+      'reviews': 1
+    }
+  }
+]).pretty()
+
+
+3) list all cast along with roles and artists of a particular flim
+
+db.movies.find({"movie_name" : "Avengers"},{"movie_name":1,"artist_role":1}).pretty()
+
+4)  List all the reviews given by particular user:
+
+ db.reviews.find({"user_name":"John"}).pretty()
+ 
+ 5) List all the skills of a particular artist
+ 
+ db.movies.aggreagate([
+  {
+    '$unwind': {
+      'path': '$artist_skills'
+    }
+  }, {
+    '$match': {
+      'artist_skills.name': 'chris'
+    }
+  }, {
+    '$project': {
+      'movie_name': 1, 
+      'artist_skills.name': 1, 
+      'artist_skills.skills': 1
+    }
+  }
+]).pretty()
+
+
+6) List all the roles performed by particular artist
+
+db.movies.aggregate([
+  {
+    '$unwind': {
+      'path': '$artist_role'
+    }
+  }, {
+    '$match': {
+      'artist_role.name': 'RJ'
+    }
+  }, {
+    '$project': {
+      'movie_name': 1, 
+      'artist_role.name': 1, 
+      'artist_role.role': 1
+    }
+  }
+]).pretty()
